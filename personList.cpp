@@ -13,7 +13,7 @@ PersonList::PersonList(){
 
 PersonList::~PersonList(){
 
-for ( unsigned int i = 0; i < capacity; ++i){
+for ( unsigned int i = 0; i < numPeople; ++i){
 	delete theList[i];
 
 }//end for to delete the relations pointed to by each person    

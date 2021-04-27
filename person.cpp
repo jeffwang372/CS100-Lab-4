@@ -16,7 +16,8 @@ Person::Person(const char *name_, Person* father_, Person* mother_){
 }//constructor
 
 Person::~Person(){
-    delete children;
+    delete[] name; // added deallocation for name of each person
+    delete[] children; // add "[]" for children
 }
 
 void Person::addChild(Person *newChild){
@@ -83,4 +84,5 @@ void expand(Person ***t, int *MAX){
   memcpy(temp, *t, *MAX * sizeof(**t));
   *MAX *= 2;
   *t = temp;
+ // delete[] temp; // added deallocation for temp
 }

@@ -83,6 +83,6 @@ void expand(Person ***t, int *MAX){
   Person **temp = new Person*[2 * *MAX];
   memcpy(temp, *t, *MAX * sizeof(**t));
   *MAX *= 2;
+  delete[] *t; // added deallocation for *t
   *t = temp;
- // delete[] temp; // added deallocation for temp
 }

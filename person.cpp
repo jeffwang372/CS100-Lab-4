@@ -64,11 +64,12 @@ delete[] temp; //add destructor for newly created temp pointer
 char* Person::compute_relation(int level){
     if(level == 0) return strcpy(new char[1], "");
 
-    char *temp = strcpy(new char[strlen("grand ") + 1], "grand ");;
+    char *temp = strcpy(new char[strlen("grand ") + 1], "grand ");
     
     for(int i = 2; i <= level; i++){
         char *temp2 = new char[strlen("great ") + strlen(temp) + 1];
         strcat(strcpy(temp2, "great "), temp);
+	delete[] temp; // add destructor for temp to remove instance of "grand" before moving pointer
         temp = temp2;
     }
     return temp;
